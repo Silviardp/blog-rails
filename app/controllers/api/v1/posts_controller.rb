@@ -1,6 +1,9 @@
 class Api::V1::PostsController < ActionController::Base
+skip_before_action :verify_authenticity_token
+
+
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
     render json: @posts
   end
 

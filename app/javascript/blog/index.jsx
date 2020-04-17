@@ -21,6 +21,8 @@ const reducers = combineReducers({
 
 const middlewares = applyMiddleware(reduxPromise, logger);
 
+const root = document.getElementById("root");
+
 // render an instance of the component in the DOM
 ReactDOM.render(
   <Provider store={createStore(reducers, {}, middlewares)}>
@@ -34,5 +36,5 @@ ReactDOM.render(
       </div>
     </Router>
   </Provider>,
-  document.getElementById("root")
+  root
 );
